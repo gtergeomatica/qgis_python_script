@@ -1,0 +1,6 @@
+aoi = iface.activeLayer()
+print(aoi.renderer().symbol().symbolLayers()[0].properties())
+symbol = QgsFillSymbol.createSimple({'color': '243,166,178,0', 'outline_color': '0,255,255,255', 'outline_style': 'solid', 'outline_width': '0.5', 'outline_width_unit': 'MM'})
+aoi.renderer().setSymbol(symbol)
+aoi.triggerRepaint()
+iface.layerTreeView().refreshLayerSymbology(aoi.id())
