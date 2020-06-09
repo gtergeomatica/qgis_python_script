@@ -23,11 +23,11 @@ for child in root.findLayers():
         lyr = child.layer()
         #get the name of layer with valuemap/valurelation widgets
         for f in lyr.fields():
-            if f.editorWidgetSetup().type() == 'ValueMap' or f.editorWidgetSetup().type() == 'ValueRelation':
+            if f.editorWidgetSetup().type() == 'ValueMap':
                 layernames.append(lyr.name())
         #iterate over all fields of the layer
         for idx in lyr.fields().allAttributesList():
-            if lyr.editorWidgetSetup(idx).type() == 'ValueMap' or lyr.editorWidgetSetup(idx).type() == 'ValueRelation':
+            if lyr.editorWidgetSetup(idx).type() == 'ValueMap':
                 fieldname = lyr.fields().field(idx).name()
                 #iterate over cod/label of valuemap/valuerelation widget
                 for dicts in lyr.editorWidgetSetup(idx).config().values():
@@ -52,6 +52,6 @@ name_set = set(layernames)
 unique_name = list(name_set)
 with open(txt_file, "w") as file:
     for un in unique_name:
-        file.write(un + '\n')
+        file.write('\'' + un + '\'' + ',\n')
 file.close()
 print('FINITO')
