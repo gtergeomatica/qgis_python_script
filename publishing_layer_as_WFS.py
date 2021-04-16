@@ -5,7 +5,7 @@ vectorLayers = {layer.id(): layer.name() for layer in QgsProject.instance().mapL
 #print(vectorLayers)
 wfsLayersConfig = [
   {
-    "name": "condotte",
+    "name": "valuemap",
     "published": True,
     "precision": 8,
     "Update": False,
